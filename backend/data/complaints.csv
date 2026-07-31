@@ -1,0 +1,334 @@
+complaint_id,gvp_id,reported_date,category,severity,status,source,image_available
+C0001,GVP001,2025-01-23,uncollected_garbage,high,Resolved,app,False
+C0002,GVP001,2025-02-07,littering,medium,Resolved,app,True
+C0003,GVP001,2025-02-22,dumping,high,Resolved,IVRS,False
+C0004,GVP001,2025-03-09,overflow,high,Resolved,call,False
+C0005,GVP001,2025-03-16,littering,medium,Resolved,call,True
+C0006,GVP001,2025-03-28,dumping,medium,Resolved,call,False
+C0007,GVP001,2025-04-08,littering,medium,Resolved,IVRS,False
+C0008,GVP002,2025-02-20,uncollected_garbage,medium,Resolved,app,True
+C0009,GVP002,2025-03-22,uncollected_garbage,high,Resolved,app,False
+C0010,GVP002,2025-04-21,littering,medium,In Progress,call,False
+C0011,GVP002,2025-05-15,overflow,medium,Resolved,app,True
+C0012,GVP003,2025-01-09,dumping,low,In Progress,IVRS,False
+C0013,GVP003,2025-02-18,dumping,medium,Resolved,call,True
+C0014,GVP003,2025-03-18,dumping,medium,Resolved,IVRS,False
+C0015,GVP003,2025-04-26,overflow,medium,In Progress,call,True
+C0016,GVP003,2025-06-01,uncollected_garbage,low,Resolved,call,False
+C0017,GVP004,2025-02-28,littering,high,Resolved,app,True
+C0018,GVP004,2025-03-07,overflow,high,Resolved,IVRS,True
+C0019,GVP004,2025-03-14,dumping,medium,In Progress,app,True
+C0020,GVP004,2025-03-24,littering,high,Resolved,app,False
+C0021,GVP004,2025-04-07,littering,medium,Resolved,call,True
+C0022,GVP004,2025-04-20,littering,high,Resolved,call,False
+C0023,GVP004,2025-04-28,littering,medium,Resolved,IVRS,False
+C0024,GVP004,2025-05-08,overflow,medium,Resolved,IVRS,True
+C0025,GVP004,2025-05-19,overflow,high,Resolved,app,False
+C0026,GVP004,2025-06-03,dumping,medium,Pending,IVRS,False
+C0027,GVP005,2025-02-22,overflow,low,Resolved,call,False
+C0028,GVP005,2025-03-21,dumping,low,Resolved,call,True
+C0029,GVP005,2025-04-20,overflow,medium,Resolved,IVRS,True
+C0030,GVP006,2025-02-16,uncollected_garbage,low,Resolved,call,False
+C0031,GVP006,2025-06-01,dumping,low,In Progress,IVRS,True
+C0032,GVP007,2025-02-16,uncollected_garbage,low,Resolved,IVRS,False
+C0033,GVP008,2025-02-07,overflow,low,Pending,IVRS,True
+C0034,GVP009,2025-02-17,dumping,low,Pending,app,False
+C0035,GVP009,2025-04-27,dumping,medium,Resolved,call,True
+C0036,GVP010,2025-02-21,overflow,medium,Resolved,IVRS,False
+C0037,GVP010,2025-06-17,overflow,low,In Progress,app,False
+C0038,GVP011,2025-02-14,dumping,high,In Progress,call,False
+C0039,GVP011,2025-02-24,littering,medium,Resolved,call,False
+C0040,GVP011,2025-03-06,dumping,medium,Resolved,IVRS,True
+C0041,GVP011,2025-03-14,uncollected_garbage,high,Resolved,IVRS,False
+C0042,GVP011,2025-03-29,dumping,high,In Progress,app,True
+C0043,GVP011,2025-04-09,dumping,medium,Resolved,IVRS,False
+C0044,GVP011,2025-04-21,dumping,high,In Progress,call,True
+C0045,GVP011,2025-04-28,littering,high,Resolved,app,False
+C0046,GVP011,2025-05-08,littering,high,Pending,app,False
+C0047,GVP012,2025-02-26,uncollected_garbage,high,In Progress,app,False
+C0048,GVP012,2025-03-09,overflow,medium,Resolved,app,True
+C0049,GVP012,2025-03-23,dumping,high,Resolved,call,False
+C0050,GVP012,2025-04-02,littering,high,Resolved,call,True
+C0051,GVP012,2025-04-09,littering,medium,Resolved,app,False
+C0052,GVP012,2025-04-24,dumping,high,Resolved,IVRS,False
+C0053,GVP012,2025-05-08,littering,medium,Resolved,IVRS,True
+C0054,GVP013,2025-01-31,littering,high,Resolved,call,True
+C0055,GVP013,2025-02-10,littering,high,Pending,IVRS,True
+C0056,GVP013,2025-02-23,dumping,high,Resolved,call,True
+C0057,GVP013,2025-03-08,overflow,high,Resolved,call,True
+C0058,GVP013,2025-03-15,uncollected_garbage,high,Resolved,IVRS,True
+C0059,GVP013,2025-03-24,overflow,high,Resolved,IVRS,False
+C0060,GVP013,2025-03-31,littering,medium,In Progress,app,True
+C0061,GVP013,2025-04-11,uncollected_garbage,high,Resolved,app,True
+C0062,GVP014,2025-02-26,dumping,low,Resolved,call,False
+C0063,GVP014,2025-03-30,overflow,high,Resolved,app,False
+C0064,GVP014,2025-04-26,uncollected_garbage,low,Resolved,IVRS,True
+C0065,GVP015,2025-02-02,overflow,high,Resolved,IVRS,False
+C0066,GVP015,2025-03-13,littering,high,In Progress,call,True
+C0067,GVP015,2025-04-12,dumping,medium,In Progress,call,True
+C0068,GVP015,2025-05-16,uncollected_garbage,high,Resolved,app,True
+C0069,GVP015,2025-06-20,uncollected_garbage,medium,Resolved,call,False
+C0070,GVP016,2025-02-21,uncollected_garbage,low,Resolved,IVRS,True
+C0071,GVP016,2025-05-06,overflow,low,Resolved,call,True
+C0072,GVP017,2025-01-18,overflow,low,Resolved,call,True
+C0073,GVP018,2025-03-02,dumping,medium,Resolved,IVRS,True
+C0074,GVP018,2025-03-14,dumping,medium,Pending,call,True
+C0075,GVP018,2025-03-22,littering,high,Resolved,app,False
+C0076,GVP018,2025-03-31,uncollected_garbage,medium,Pending,app,True
+C0077,GVP018,2025-04-13,overflow,high,Resolved,IVRS,False
+C0078,GVP018,2025-04-24,littering,high,Resolved,call,True
+C0079,GVP018,2025-05-02,overflow,medium,Resolved,call,True
+C0080,GVP018,2025-05-11,dumping,high,Resolved,app,True
+C0081,GVP019,2025-02-02,uncollected_garbage,high,Resolved,IVRS,True
+C0082,GVP019,2025-03-11,littering,high,Resolved,app,False
+C0083,GVP019,2025-04-10,dumping,medium,Resolved,app,False
+C0084,GVP019,2025-05-18,uncollected_garbage,low,Resolved,IVRS,False
+C0085,GVP020,2025-01-27,littering,low,Resolved,app,True
+C0086,GVP020,2025-05-16,dumping,low,In Progress,IVRS,True
+C0087,GVP021,2025-02-05,littering,medium,Resolved,IVRS,True
+C0088,GVP021,2025-03-17,overflow,medium,Resolved,call,True
+C0089,GVP021,2025-04-08,dumping,medium,Pending,call,False
+C0090,GVP021,2025-05-02,uncollected_garbage,high,Resolved,IVRS,True
+C0091,GVP021,2025-06-06,overflow,high,Resolved,call,True
+C0092,GVP022,2025-02-07,uncollected_garbage,high,Resolved,call,True
+C0093,GVP022,2025-03-13,overflow,medium,Resolved,IVRS,True
+C0094,GVP022,2025-04-15,uncollected_garbage,low,Resolved,IVRS,False
+C0095,GVP022,2025-05-17,overflow,high,Pending,call,True
+C0096,GVP023,2025-03-03,littering,low,Resolved,IVRS,True
+C0097,GVP023,2025-06-14,littering,medium,Resolved,call,False
+C0098,GVP024,2025-01-30,uncollected_garbage,low,Resolved,app,False
+C0099,GVP025,2025-01-25,overflow,medium,Resolved,app,True
+C0100,GVP025,2025-02-21,overflow,high,Resolved,app,True
+C0101,GVP025,2025-03-21,littering,low,Resolved,call,True
+C0102,GVP025,2025-04-24,uncollected_garbage,medium,Pending,IVRS,False
+C0103,GVP025,2025-05-28,overflow,medium,In Progress,call,True
+C0104,GVP026,2025-01-28,overflow,medium,Resolved,IVRS,True
+C0105,GVP026,2025-02-21,dumping,low,In Progress,call,True
+C0106,GVP026,2025-03-24,dumping,medium,Resolved,call,True
+C0107,GVP027,2025-01-20,dumping,high,In Progress,app,True
+C0108,GVP027,2025-02-02,uncollected_garbage,high,In Progress,app,True
+C0109,GVP027,2025-02-17,littering,medium,Resolved,call,False
+C0110,GVP027,2025-03-02,uncollected_garbage,high,Resolved,app,True
+C0111,GVP027,2025-03-17,overflow,high,Resolved,IVRS,False
+C0112,GVP027,2025-03-28,littering,high,Resolved,app,False
+C0113,GVP027,2025-04-08,dumping,high,Resolved,app,True
+C0114,GVP027,2025-04-21,uncollected_garbage,high,Pending,IVRS,False
+C0115,GVP027,2025-05-06,overflow,high,Resolved,call,False
+C0116,GVP028,2025-01-11,dumping,low,In Progress,call,True
+C0117,GVP029,2025-01-12,overflow,medium,Resolved,IVRS,True
+C0118,GVP029,2025-02-02,littering,medium,Resolved,IVRS,True
+C0119,GVP029,2025-03-08,dumping,medium,Resolved,call,False
+C0120,GVP030,2025-02-23,overflow,medium,Resolved,app,False
+C0121,GVP030,2025-04-02,littering,medium,Resolved,IVRS,True
+C0122,GVP030,2025-05-11,dumping,high,Resolved,IVRS,False
+C0123,GVP031,2025-02-15,dumping,high,In Progress,app,True
+C0124,GVP031,2025-03-10,overflow,medium,Resolved,IVRS,False
+C0125,GVP031,2025-04-16,dumping,medium,Resolved,call,False
+C0126,GVP031,2025-05-19,uncollected_garbage,low,Resolved,IVRS,True
+C0127,GVP032,2025-02-26,uncollected_garbage,low,Resolved,call,True
+C0128,GVP033,2025-01-13,littering,medium,Resolved,call,True
+C0129,GVP033,2025-01-24,uncollected_garbage,high,Resolved,IVRS,False
+C0130,GVP033,2025-02-02,dumping,medium,Resolved,IVRS,True
+C0131,GVP033,2025-02-15,littering,high,Resolved,call,False
+C0132,GVP033,2025-02-23,littering,high,Resolved,app,False
+C0133,GVP033,2025-03-09,uncollected_garbage,high,Resolved,app,False
+C0134,GVP033,2025-03-16,overflow,medium,Pending,call,False
+C0135,GVP034,2025-01-13,dumping,high,Resolved,call,False
+C0136,GVP034,2025-02-16,dumping,medium,In Progress,call,True
+C0137,GVP034,2025-03-26,dumping,high,In Progress,call,False
+C0138,GVP034,2025-04-22,overflow,medium,Resolved,app,True
+C0139,GVP035,2025-01-22,uncollected_garbage,high,Resolved,IVRS,True
+C0140,GVP035,2025-02-26,uncollected_garbage,high,Resolved,call,True
+C0141,GVP035,2025-03-20,littering,medium,Resolved,call,True
+C0142,GVP035,2025-04-18,dumping,low,Resolved,IVRS,True
+C0143,GVP035,2025-05-26,littering,low,Resolved,IVRS,True
+C0144,GVP036,2025-01-12,dumping,high,Resolved,IVRS,True
+C0145,GVP036,2025-01-21,dumping,high,Resolved,IVRS,False
+C0146,GVP036,2025-02-01,littering,high,Resolved,app,False
+C0147,GVP036,2025-02-12,littering,high,In Progress,IVRS,False
+C0148,GVP036,2025-02-27,littering,medium,Resolved,IVRS,True
+C0149,GVP036,2025-03-08,uncollected_garbage,medium,Resolved,call,False
+C0150,GVP036,2025-03-17,uncollected_garbage,medium,Resolved,app,True
+C0151,GVP036,2025-04-01,uncollected_garbage,medium,Resolved,IVRS,True
+C0152,GVP036,2025-04-10,overflow,medium,Resolved,IVRS,True
+C0153,GVP037,2025-02-24,dumping,high,Resolved,call,True
+C0154,GVP037,2025-03-06,dumping,high,Resolved,call,True
+C0155,GVP037,2025-03-14,uncollected_garbage,high,Resolved,app,True
+C0156,GVP037,2025-03-28,overflow,high,Resolved,IVRS,False
+C0157,GVP037,2025-04-05,uncollected_garbage,medium,In Progress,app,True
+C0158,GVP037,2025-04-20,dumping,high,Resolved,call,True
+C0159,GVP037,2025-04-30,littering,high,Resolved,app,False
+C0160,GVP037,2025-05-15,overflow,medium,Resolved,IVRS,True
+C0161,GVP038,2025-01-09,littering,low,Resolved,app,True
+C0162,GVP039,2025-01-22,overflow,low,Resolved,call,False
+C0163,GVP039,2025-05-17,uncollected_garbage,medium,Resolved,call,True
+C0164,GVP040,2025-03-02,dumping,high,Resolved,IVRS,True
+C0165,GVP040,2025-03-11,uncollected_garbage,high,Resolved,call,True
+C0166,GVP040,2025-03-22,littering,high,Resolved,IVRS,True
+C0167,GVP040,2025-04-05,littering,high,Resolved,app,False
+C0168,GVP040,2025-04-18,dumping,high,Resolved,app,True
+C0169,GVP040,2025-05-03,overflow,high,Resolved,app,False
+C0170,GVP040,2025-05-17,overflow,medium,Resolved,app,False
+C0171,GVP040,2025-05-29,dumping,high,Resolved,IVRS,True
+C0172,GVP040,2025-06-10,littering,high,Resolved,app,True
+C0173,GVP041,2025-02-28,dumping,low,In Progress,app,True
+C0174,GVP041,2025-05-30,uncollected_garbage,low,Resolved,IVRS,True
+C0175,GVP042,2025-01-14,overflow,medium,Resolved,call,True
+C0176,GVP042,2025-01-29,overflow,high,Resolved,IVRS,True
+C0177,GVP042,2025-02-07,dumping,high,Resolved,app,True
+C0178,GVP042,2025-02-16,overflow,high,Pending,call,True
+C0179,GVP042,2025-02-27,uncollected_garbage,medium,Resolved,app,True
+C0180,GVP042,2025-03-08,uncollected_garbage,high,Resolved,IVRS,True
+C0181,GVP042,2025-03-17,overflow,high,Resolved,app,False
+C0182,GVP042,2025-03-29,dumping,high,Resolved,app,False
+C0183,GVP042,2025-04-09,overflow,high,Resolved,IVRS,False
+C0184,GVP042,2025-04-23,uncollected_garbage,high,Pending,IVRS,True
+C0185,GVP043,2025-01-30,uncollected_garbage,high,In Progress,app,True
+C0186,GVP043,2025-02-14,littering,high,Resolved,call,True
+C0187,GVP043,2025-02-27,littering,high,Resolved,app,True
+C0188,GVP043,2025-03-06,littering,high,In Progress,IVRS,False
+C0189,GVP043,2025-03-20,dumping,high,Resolved,app,False
+C0190,GVP043,2025-04-01,uncollected_garbage,high,Resolved,app,True
+C0191,GVP043,2025-04-11,uncollected_garbage,high,Resolved,app,True
+C0192,GVP043,2025-04-26,dumping,high,Pending,app,True
+C0193,GVP043,2025-05-08,uncollected_garbage,high,Resolved,app,True
+C0194,GVP044,2025-02-08,overflow,high,Resolved,IVRS,False
+C0195,GVP044,2025-03-12,overflow,medium,Resolved,app,False
+C0196,GVP044,2025-04-07,littering,low,Resolved,call,True
+C0197,GVP044,2025-05-03,littering,high,Resolved,IVRS,False
+C0198,GVP044,2025-06-08,uncollected_garbage,medium,Resolved,IVRS,True
+C0199,GVP045,2025-03-07,uncollected_garbage,medium,Resolved,call,False
+C0200,GVP045,2025-04-08,uncollected_garbage,high,Resolved,app,True
+C0201,GVP045,2025-04-30,littering,medium,Resolved,IVRS,True
+C0202,GVP045,2025-05-26,uncollected_garbage,medium,Resolved,app,False
+C0203,GVP046,2025-02-02,overflow,high,Resolved,call,False
+C0204,GVP046,2025-02-24,dumping,medium,Resolved,app,False
+C0205,GVP046,2025-03-17,littering,high,Pending,app,False
+C0206,GVP046,2025-04-15,dumping,low,Resolved,call,True
+C0207,GVP047,2025-01-27,uncollected_garbage,low,Resolved,call,False
+C0208,GVP047,2025-02-21,littering,high,Resolved,IVRS,True
+C0209,GVP047,2025-03-16,overflow,medium,Resolved,call,True
+C0210,GVP047,2025-04-13,overflow,high,In Progress,call,False
+C0211,GVP047,2025-05-12,uncollected_garbage,low,Resolved,IVRS,True
+C0212,GVP048,2025-03-05,littering,low,Resolved,IVRS,True
+C0213,GVP048,2025-04-12,dumping,low,Pending,IVRS,True
+C0214,GVP048,2025-05-19,overflow,medium,In Progress,call,True
+C0215,GVP049,2025-02-27,uncollected_garbage,high,Resolved,IVRS,True
+C0216,GVP049,2025-03-19,dumping,medium,Resolved,app,False
+C0217,GVP049,2025-04-25,dumping,low,Resolved,call,True
+C0218,GVP049,2025-05-19,uncollected_garbage,high,Resolved,call,False
+C0219,GVP049,2025-06-20,dumping,high,Pending,IVRS,False
+C0220,GVP050,2025-02-12,overflow,medium,In Progress,IVRS,True
+C0221,GVP050,2025-03-17,overflow,low,Resolved,app,True
+C0222,GVP050,2025-04-20,overflow,low,Resolved,IVRS,True
+C0223,GVP050,2025-05-27,dumping,medium,Resolved,app,True
+C0224,GVP051,2025-01-27,uncollected_garbage,medium,Resolved,IVRS,True
+C0225,GVP051,2025-04-21,littering,low,In Progress,app,True
+C0226,GVP052,2025-02-06,dumping,high,In Progress,call,True
+C0227,GVP052,2025-02-16,uncollected_garbage,medium,Resolved,call,False
+C0228,GVP052,2025-02-24,overflow,medium,Resolved,call,False
+C0229,GVP052,2025-03-07,overflow,medium,Pending,app,True
+C0230,GVP052,2025-03-21,overflow,medium,Pending,call,True
+C0231,GVP052,2025-04-01,littering,high,Resolved,IVRS,True
+C0232,GVP052,2025-04-13,littering,high,Resolved,call,False
+C0233,GVP052,2025-04-27,overflow,high,Resolved,call,True
+C0234,GVP052,2025-05-07,overflow,high,Resolved,app,False
+C0235,GVP053,2025-01-15,overflow,low,Resolved,IVRS,True
+C0236,GVP053,2025-02-24,littering,high,Resolved,app,True
+C0237,GVP053,2025-03-16,uncollected_garbage,low,Pending,IVRS,True
+C0238,GVP054,2025-02-24,uncollected_garbage,low,Resolved,call,True
+C0239,GVP054,2025-03-23,dumping,medium,Pending,IVRS,False
+C0240,GVP054,2025-04-13,littering,low,Resolved,call,True
+C0241,GVP054,2025-05-23,overflow,low,Resolved,app,True
+C0242,GVP055,2025-01-21,dumping,low,Resolved,app,False
+C0243,GVP056,2025-01-10,littering,high,Resolved,IVRS,False
+C0244,GVP056,2025-01-18,uncollected_garbage,high,Resolved,app,True
+C0245,GVP056,2025-01-26,littering,high,Resolved,call,True
+C0246,GVP056,2025-02-09,overflow,high,Resolved,call,True
+C0247,GVP056,2025-02-18,littering,high,In Progress,app,True
+C0248,GVP056,2025-02-28,dumping,high,Resolved,app,True
+C0249,GVP056,2025-03-09,littering,high,Resolved,call,True
+C0250,GVP056,2025-03-20,uncollected_garbage,high,Resolved,call,True
+C0251,GVP056,2025-04-02,littering,high,Resolved,app,True
+C0252,GVP056,2025-04-10,uncollected_garbage,high,Resolved,call,True
+C0253,GVP057,2025-01-12,littering,medium,Resolved,call,False
+C0254,GVP057,2025-02-16,uncollected_garbage,medium,Resolved,call,False
+C0255,GVP057,2025-03-19,overflow,low,Pending,IVRS,True
+C0256,GVP057,2025-04-25,littering,low,Resolved,IVRS,False
+C0257,GVP058,2025-01-16,littering,high,Resolved,IVRS,False
+C0258,GVP058,2025-01-31,dumping,high,In Progress,app,False
+C0259,GVP058,2025-02-12,dumping,medium,Pending,IVRS,False
+C0260,GVP058,2025-02-25,littering,high,Resolved,app,True
+C0261,GVP058,2025-03-12,overflow,high,Resolved,call,True
+C0262,GVP058,2025-03-27,uncollected_garbage,medium,Resolved,app,True
+C0263,GVP058,2025-04-04,overflow,medium,Resolved,call,True
+C0264,GVP058,2025-04-14,littering,high,Resolved,call,True
+C0265,GVP058,2025-04-28,dumping,high,Resolved,call,False
+C0266,GVP058,2025-05-05,dumping,high,In Progress,IVRS,False
+C0267,GVP059,2025-01-28,uncollected_garbage,low,In Progress,call,False
+C0268,GVP059,2025-05-20,uncollected_garbage,medium,Resolved,IVRS,False
+C0269,GVP060,2025-01-20,littering,medium,Resolved,IVRS,False
+C0270,GVP060,2025-01-29,overflow,high,Resolved,call,True
+C0271,GVP060,2025-02-12,dumping,high,Pending,call,True
+C0272,GVP060,2025-02-22,littering,high,Resolved,call,True
+C0273,GVP060,2025-03-08,overflow,high,Resolved,app,False
+C0274,GVP060,2025-03-18,dumping,high,Resolved,call,True
+C0275,GVP060,2025-04-01,littering,high,Resolved,IVRS,True
+C0276,GVP060,2025-04-12,uncollected_garbage,high,In Progress,IVRS,True
+C0277,GVP060,2025-04-26,overflow,high,Resolved,call,False
+C0278,GVP060,2025-05-06,dumping,high,Resolved,call,False
+C0279,GVP061,2025-01-27,overflow,medium,Resolved,IVRS,True
+C0280,GVP061,2025-03-08,littering,medium,Resolved,call,False
+C0281,GVP061,2025-03-30,uncollected_garbage,high,Pending,IVRS,True
+C0282,GVP062,2025-01-24,overflow,high,In Progress,call,True
+C0283,GVP062,2025-02-05,uncollected_garbage,high,Resolved,IVRS,True
+C0284,GVP062,2025-02-19,dumping,high,Resolved,app,False
+C0285,GVP062,2025-03-05,dumping,medium,Resolved,app,True
+C0286,GVP062,2025-03-18,overflow,medium,Resolved,IVRS,False
+C0287,GVP062,2025-03-29,uncollected_garbage,medium,Resolved,call,False
+C0288,GVP062,2025-04-07,littering,medium,Resolved,IVRS,False
+C0289,GVP063,2025-03-02,dumping,medium,Resolved,IVRS,True
+C0290,GVP064,2025-01-16,dumping,low,In Progress,app,True
+C0291,GVP064,2025-04-10,littering,low,In Progress,call,True
+C0292,GVP065,2025-01-29,littering,medium,Resolved,call,False
+C0293,GVP065,2025-02-25,littering,high,Resolved,app,False
+C0294,GVP065,2025-03-19,uncollected_garbage,low,Resolved,call,False
+C0295,GVP066,2025-03-07,littering,high,Resolved,IVRS,False
+C0296,GVP066,2025-03-22,overflow,high,Resolved,call,True
+C0297,GVP066,2025-04-01,uncollected_garbage,medium,Resolved,call,False
+C0298,GVP066,2025-04-09,littering,high,Pending,IVRS,True
+C0299,GVP066,2025-04-19,littering,medium,Resolved,app,False
+C0300,GVP066,2025-04-30,overflow,high,Resolved,app,True
+C0301,GVP066,2025-05-07,littering,medium,Resolved,call,False
+C0302,GVP066,2025-05-18,uncollected_garbage,medium,Resolved,app,False
+C0303,GVP066,2025-05-26,uncollected_garbage,medium,Resolved,call,True
+C0304,GVP067,2025-02-07,dumping,low,Resolved,call,True
+C0305,GVP068,2025-01-07,uncollected_garbage,medium,Resolved,IVRS,True
+C0306,GVP068,2025-02-14,overflow,high,Pending,IVRS,False
+C0307,GVP068,2025-03-13,dumping,medium,Resolved,call,True
+C0308,GVP068,2025-04-22,uncollected_garbage,low,In Progress,app,True
+C0309,GVP069,2025-02-23,dumping,low,Resolved,IVRS,True
+C0310,GVP069,2025-06-15,dumping,low,Resolved,IVRS,True
+C0311,GVP070,2025-02-23,overflow,medium,In Progress,app,True
+C0312,GVP070,2025-03-04,overflow,medium,Resolved,call,True
+C0313,GVP070,2025-03-19,overflow,high,Resolved,call,True
+C0314,GVP070,2025-03-27,overflow,medium,Resolved,IVRS,False
+C0315,GVP070,2025-04-03,uncollected_garbage,medium,Resolved,app,True
+C0316,GVP070,2025-04-15,dumping,high,Resolved,IVRS,False
+C0317,GVP070,2025-04-24,littering,medium,Resolved,call,True
+C0318,GVP070,2025-05-02,dumping,high,Resolved,app,True
+C0319,GVP070,2025-05-12,overflow,medium,Resolved,call,False
+C0320,GVP071,2025-01-23,littering,low,Resolved,app,False
+C0321,GVP072,2025-02-17,littering,low,Pending,call,True
+C0322,GVP072,2025-05-12,overflow,low,Resolved,app,True
+C0323,GVP073,2025-01-31,dumping,medium,Resolved,app,True
+C0324,GVP073,2025-02-21,littering,medium,Pending,call,False
+C0325,GVP073,2025-03-18,overflow,medium,Resolved,IVRS,False
+C0326,GVP073,2025-04-18,uncollected_garbage,low,Resolved,IVRS,True
+C0327,GVP073,2025-05-14,uncollected_garbage,high,Resolved,app,True
+C0328,GVP074,2025-01-27,dumping,low,Resolved,call,False
+C0329,GVP075,2025-03-05,uncollected_garbage,high,Resolved,app,True
+C0330,GVP075,2025-04-13,overflow,medium,Resolved,IVRS,True
+C0331,GVP075,2025-05-12,overflow,medium,Resolved,app,False
+C0332,GVP075,2025-06-19,dumping,high,Resolved,app,False
+C0333,GVP075,2025-07-28,dumping,medium,Resolved,call,False

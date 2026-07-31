@@ -33,7 +33,7 @@ load_dotenv(dotenv_path=ENV_FILE)
 MONGO_URI: str = os.getenv("MONGO_URI", "mongodb://localhost:27017/gvmc_pilot")
 _DB_NAME: str = MONGO_URI.rstrip("/").split("/")[-1] or "gvmc_pilot"
 
-VALID_STATUSES = {"Open", "In Progress", "Resolved"}
+VALID_STATUSES = {"Open", "In Progress", "Resolved", "Pending"}
 
 
 # ---------------------------------------------------------------------------
@@ -57,6 +57,8 @@ def clean_status(status_str: str) -> str:
         return "In Progress"
     elif status_lower in ("resolved", "r"):
         return "Resolved"
+    elif status_lower in ("pending", "p"):
+        return "Pending"
     else:
         return status_str.strip().title()
 
@@ -65,7 +67,7 @@ def clean_status(status_str: str) -> str:
 # Row → MongoDB document
 # ---------------------------------------------------------------------------
 
-def row_to_doc(row: pd.Series, columns_mapping: dict) -> dict:
+def row_to_doc(row: pd.Series, columns_mapping: dict, gvp_ward_map: dict = None) -> dict:
     """
     Convert a DataFrame row to the MongoDB Complaint document shape.
     """
@@ -83,13 +85,19 @@ def row_to_doc(row: pd.Series, columns_mapping: dict) -> dict:
 
     # Ward mapping
     ward_col = columns_mapping.get("ward")
-    ward = safe_int(row[ward_col], "ward", row_id)
+    ward = None
+    if ward_col and pd.notna(row[ward_col]):
+        try:
+            ward = safe_int(row[ward_col], "ward", row_id)
+        except Exception:
+            ward = None
+    
+    if ward is None and gvp_ward_map:
+        ward = gvp_ward_map.get(gvp_id)
 
     # Status mapping
     status_col = columns_mapping.get("status")
     status_val = clean_status(str(row[status_col])) if status_col else "Open"
-    if status_val not in VALID_STATUSES:
-        raise ValueError(f"Invalid status '{status_val}'. Expected one of: {VALID_STATUSES}")
 
     # Category, description
     cat_col = columns_mapping.get("category")
@@ -113,16 +121,18 @@ def row_to_doc(row: pd.Series, columns_mapping: dict) -> dict:
     if resolved_date == "nan":
         resolved_date = None
 
-    return {
+    doc = {
         "_id": row_id,
         "gvp_id": gvp_id,
-        "ward": ward,
         "status": status_val,
         "category": category,
         "description": description,
         "reported_date": reported_date,
         "resolved_date": resolved_date,
     }
+    if ward is not None:
+        doc["ward"] = ward
+    return doc
 
 
 # ---------------------------------------------------------------------------
@@ -182,7 +192,7 @@ def main() -> None:
         mapping["resolved_date"] = "resolved_date"
 
     # Verify minimum required columns for mapping
-    required_keys = {"complaint_id", "gvp_id", "ward", "reported_date"}
+    required_keys = {"complaint_id", "gvp_id", "reported_date"}
     missing_mappings = required_keys - set(mapping.keys())
     if missing_mappings:
         print(f"[ERROR] Could not resolve columns in CSV. Missing mappings for: {missing_mappings}", file=sys.stderr)
@@ -195,13 +205,23 @@ def main() -> None:
     client = MongoClient(MONGO_URI)
     collection = client[_DB_NAME]["complaints"]
 
+    # Pre-fetch GVP wards to fallback on
+    gvp_ward_map = {}
+    try:
+        gvp_docs = client[_DB_NAME]["gvp_locations"].find({}, {"_id": 1, "ward": 1})
+        for doc in gvp_docs:
+            if "ward" in doc:
+                gvp_ward_map[doc["_id"]] = doc["ward"]
+    except Exception:
+        pass
+
     # --- Build upsert operations, skipping invalid rows ---
     ops: list[UpdateOne] = []
     skipped = 0
 
     for idx, row in df.iterrows():
         try:
-            doc = row_to_doc(row, mapping)
+            doc = row_to_doc(row, mapping, gvp_ward_map)
         except (ValueError, KeyError) as exc:
             print(f"[WARN] Skipping row {idx + 2}: {exc}")   # +2 = 1-indexed + header
             skipped += 1

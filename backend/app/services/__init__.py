@@ -1,1 +1,4 @@
-# services package — add business-logic modules here as the system grows
+from app.services.features import get_recurrence_features
+
+__all__ = ["get_recurrence_features"]
+
