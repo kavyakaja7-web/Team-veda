@@ -8,6 +8,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routes import gvp as gvp_router
 from app.routes import complaint as complaint_router
 from app.routes import cleanup as cleanup_router
+from app.routes import risk as risk_router
+from app.routes import status as status_router
 
 app = FastAPI(
     title="GVMC GVP Tracking System",
@@ -37,6 +39,8 @@ app.add_middleware(
 app.include_router(gvp_router.router)
 app.include_router(complaint_router.router)
 app.include_router(cleanup_router.router)
+app.include_router(risk_router.router)
+app.include_router(status_router.router)
 
 
 # ---------------------------------------------------------------------------
@@ -46,3 +50,4 @@ app.include_router(cleanup_router.router)
 def health_check():
     """Returns a simple status-ok payload to confirm the API is reachable."""
     return {"status": "ok"}
+
