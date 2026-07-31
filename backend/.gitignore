@@ -1,0 +1,29 @@
+# Secrets — never commit this
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env.local
+
+# Editor / OS artefacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Distribution / build
+dist/
+build/
+*.egg-info/
+
+# Test cache
+.pytest_cache/
+.mypy_cache/
