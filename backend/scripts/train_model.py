@@ -10,8 +10,8 @@ Output: data/gvp_final.csv
 import os
 import pandas as pd
 import numpy as np
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import mean_absolute_error, r2_score
 import joblib
 
@@ -109,19 +109,39 @@ def calc_gvp_vulnerability(row):
 
 df["composite_vulnerability"] = df.apply(calc_gvp_vulnerability, axis=1)
 
-# Fit Random Forest Regressor targeting actual recurrence_rate with composite sensitivity
+# Fit Gradient Boosting Regressor targeting actual recurrence_rate with composite sensitivity
 X = df[FEATURES]
 y = 0.5 * df["recurrence_rate"] + 0.5 * df["composite_vulnerability"]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-model = RandomForestRegressor(
-    n_estimators=200,
-    max_depth=6,
-    min_samples_leaf=2,
-    random_state=42,
+print("Starting Hyperparameter tuning with GridSearchCV...")
+param_grid = {
+    'n_estimators': [100, 200],
+    'learning_rate': [0.05, 0.1],
+    'max_depth': [4, 6],
+    'min_samples_leaf': [2, 4]
+}
+
+base_model = GradientBoostingRegressor(random_state=42)
+grid_search = GridSearchCV(
+    estimator=base_model,
+    param_grid=param_grid,
+    cv=3,
+    scoring='neg_mean_absolute_error',
+    n_jobs=-1,
+    verbose=1
 )
-model.fit(X_train, y_train)
+grid_search.fit(X_train, y_train)
+
+model = grid_search.best_estimator_
+print(f"Best parameters found: {grid_search.best_params_}")
+
+# Evaluate model
+preds_test = model.predict(X_test)
+mae = mean_absolute_error(y_test, preds_test)
+r2 = r2_score(y_test, preds_test)
+print(f"Model Evaluation -> MAE: {mae:.4f}, R2: {r2:.4f}")
 
 # Predict recurrence rates
 raw_preds = model.predict(X)
@@ -131,29 +151,37 @@ scaled_preds = 0.35 + (raw_preds - min_p) / (max_p - min_p or 1.0) * (0.98 - 0.3
 df["rf_predicted_recurrence_rate"] = np.round(scaled_preds, 4)
 
 # Determine root cause & recommendations
-medians = {
-    "distance_to_bin_m": df["distance_to_bin_m"].median(),
-    "distance_to_market_m": df["distance_to_market_m"].median(),
-    "collection_frequency_per_week": df["collection_frequency_per_week"].median(),
-    "days_since_last_cleanup": df["days_since_last_cleanup"].median(),
-    "cluster_avg_recurrence_rate": df["cluster_avg_recurrence_rate"].median(),
+# Determine root cause & recommendations using Z-scores to fairly compare different scales
+stats = {
+    "distance_to_bin_m": {"mean": df["distance_to_bin_m"].mean(), "std": df["distance_to_bin_m"].std() or 1},
+    "distance_to_market_m": {"mean": df["distance_to_market_m"].mean(), "std": df["distance_to_market_m"].std() or 1},
+    "collection_frequency_per_week": {"mean": df["collection_frequency_per_week"].mean(), "std": df["collection_frequency_per_week"].std() or 1},
+    "days_since_last_cleanup": {"mean": df["days_since_last_cleanup"].mean(), "std": df["days_since_last_cleanup"].std() or 1},
+    "cluster_avg_recurrence_rate": {"mean": df["cluster_avg_recurrence_rate"].mean(), "std": df["cluster_avg_recurrence_rate"].std() or 1},
 }
 
 def analyze_row_explanation(row):
     scores = {}
-    if row["distance_to_bin_m"] > medians["distance_to_bin_m"]:
-        scores["distance_to_bin_m"] = (row["distance_to_bin_m"] - medians["distance_to_bin_m"]) / (medians["distance_to_bin_m"] or 1)
-    if row["distance_to_market_m"] < medians["distance_to_market_m"]:
-        scores["distance_to_market_m"] = (medians["distance_to_market_m"] - row["distance_to_market_m"]) / (medians["distance_to_market_m"] or 1)
-    if row["collection_frequency_per_week"] < medians["collection_frequency_per_week"]:
-        scores["collection_frequency_per_week"] = (medians["collection_frequency_per_week"] - row["collection_frequency_per_week"]) / (medians["collection_frequency_per_week"] or 1)
-    if row["days_since_last_cleanup"] > medians["days_since_last_cleanup"]:
-        scores["days_since_last_cleanup"] = (row["days_since_last_cleanup"] - medians["days_since_last_cleanup"]) / (medians["days_since_last_cleanup"] or 1)
-    if row["cluster_avg_recurrence_rate"] > medians["cluster_avg_recurrence_rate"]:
-        scores["cluster_avg_recurrence_rate"] = (row["cluster_avg_recurrence_rate"] - medians["cluster_avg_recurrence_rate"]) / (medians["cluster_avg_recurrence_rate"] or 1)
+    
+    # Higher is worse for these
+    z_bin = (row["distance_to_bin_m"] - stats["distance_to_bin_m"]["mean"]) / stats["distance_to_bin_m"]["std"]
+    if z_bin > 0: scores["distance_to_bin_m"] = z_bin
+        
+    z_days = (row["days_since_last_cleanup"] - stats["days_since_last_cleanup"]["mean"]) / stats["days_since_last_cleanup"]["std"]
+    if z_days > 0: scores["days_since_last_cleanup"] = z_days
+        
+    z_cluster = (row["cluster_avg_recurrence_rate"] - stats["cluster_avg_recurrence_rate"]["mean"]) / stats["cluster_avg_recurrence_rate"]["std"]
+    if z_cluster > 0: scores["cluster_avg_recurrence_rate"] = z_cluster
+        
+    # Lower is worse for these
+    z_market = (stats["distance_to_market_m"]["mean"] - row["distance_to_market_m"]) / stats["distance_to_market_m"]["std"]
+    if z_market > 0: scores["distance_to_market_m"] = z_market
+        
+    z_freq = (stats["collection_frequency_per_week"]["mean"] - row["collection_frequency_per_week"]) / stats["collection_frequency_per_week"]["std"]
+    if z_freq > 0: scores["collection_frequency_per_week"] = z_freq
 
     if not scores:
-        return "balanced_infrastructure", "Maintain regular monitoring schedule"
+        return "Balanced infrastructure", "Maintain regular monitoring schedule"
 
     worst = max(scores, key=scores.get)
 
@@ -164,7 +192,7 @@ def analyze_row_explanation(row):
         "days_since_last_cleanup": ("Overdue for cleanup", "Schedule immediate sanitation cleanup"),
         "cluster_avg_recurrence_rate": ("High regional cluster recurrence", "Implement zone-level infrastructure intervention"),
     }
-    return action_map.get(worst, ("general_risk", "Routine inspection"))
+    return action_map.get(worst, ("General risk", "Routine inspection"))
 
 explanations = df.apply(analyze_row_explanation, axis=1)
 df["worst_factor"] = [e[0] for e in explanations]
