@@ -7,7 +7,7 @@ const TITLES = {
   '/complaints': 'Complaints',
   '/cleanups': 'Cleanups',
   '/analytics': 'Analytics',
-  '/predictions': 'Predictions',
+  '/predictions': 'Prevention AI',
 }
 
 export default function Navbar() {
@@ -26,9 +26,13 @@ export default function Navbar() {
           <Search size={15} className="text-muted" />
           <input
             type="text"
-            placeholder="Search wards, GVP IDs…"
+            placeholder="Search wards, GVP IDs"
             className="bg-transparent text-sm text-ink placeholder:text-muted focus:outline-none"
           />
+        </div>
+        <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-purple-200 bg-purple-50 px-2.5 py-1 text-xs font-medium text-purple-700">
+          <span className="h-1.5 w-1.5 rounded-full bg-purple-600 animate-pulse" />
+          Groq AI Active
         </div>
         <button
           type="button"
@@ -44,3 +48,4 @@ export default function Navbar() {
     </header>
   )
 }
+

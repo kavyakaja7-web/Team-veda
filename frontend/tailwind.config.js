@@ -22,6 +22,13 @@ export default {
           low: '#4C8B63',
           lowBg: '#E9F3EC',
         },
+        groq: {
+          DEFAULT: '#7C3AED',
+          light: '#F3E8FF',
+          dark: '#5B21B6',
+          border: '#DDD6FE',
+          glow: 'rgba(124, 58, 237, 0.15)',
+        },
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'sans-serif'],
@@ -35,6 +42,7 @@ export default {
       },
       boxShadow: {
         card: '0 1px 2px rgba(22, 36, 31, 0.06), 0 1px 8px rgba(22, 36, 31, 0.04)',
+        groq: '0 0 20px rgba(124, 58, 237, 0.15)',
       },
       keyframes: {
         pulseRing: {
@@ -42,9 +50,14 @@ export default {
           '70%': { transform: 'scale(1.6)', opacity: '0' },
           '100%': { transform: 'scale(1.6)', opacity: '0' },
         },
+        gradientShift: {
+          '0%, 100%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+        },
       },
       animation: {
         pulseRing: 'pulseRing 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        gradient: 'gradientShift 6s ease infinite',
       },
     },
   },

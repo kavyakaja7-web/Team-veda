@@ -14,7 +14,7 @@ const NAV_ITEMS = [
   { to: '/complaints', label: 'Complaints', icon: MessageSquareWarning },
   { to: '/cleanups', label: 'Cleanups', icon: Sparkles },
   { to: '/analytics', label: 'Analytics', icon: LineChart },
-  { to: '/predictions', label: 'Predictions', icon: BrainCircuit },
+  { to: '/predictions', label: 'Prevention AI', icon: BrainCircuit },
 ]
 
 export default function Sidebar() {
@@ -45,9 +45,17 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="border-t border-white/10 px-5 py-4 text-[11px] text-white/40">
-        Backend: {import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}
+      <div className="border-t border-white/10 px-5 py-4 space-y-2">
+        <div className="flex items-center gap-2 rounded bg-purple-950/60 border border-purple-800/50 px-2.5 py-1.5 text-xs text-purple-300">
+          <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
+          <span className="font-semibold">Groq LPU Engine</span>
+          <span className="ml-auto text-[10px] text-purple-400 font-mono">ON</span>
+        </div>
+        <p className="text-[11px] text-white/40">
+          Backend: {import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}
+        </p>
       </div>
     </aside>
   )
 }
+

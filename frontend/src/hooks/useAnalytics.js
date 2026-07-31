@@ -1,18 +1,17 @@
 import { useQuery } from '@tanstack/react-query'
-import { getAnalyticsFeatures } from '../services/analyticsService.js'
-import { getPredictions } from '../services/predictionService.js'
+import { getAnalyticsFeatures, getAnalyticsSummary } from '../services/analyticsService.js'
 
 export function useAnalytics(filters = {}) {
   return useQuery({
-    queryKey: ['analytics', filters],
+    queryKey: ['analytics-features', filters],
     queryFn: () => getAnalyticsFeatures(filters),
   })
 }
 
-export function usePredictions(filters = {}) {
+export function useAnalyticsSummary() {
   return useQuery({
-    queryKey: ['predictions', filters],
-    queryFn: () => getPredictions(filters),
+    queryKey: ['analytics-summary'],
+    queryFn: () => getAnalyticsSummary(),
   })
 }
 
