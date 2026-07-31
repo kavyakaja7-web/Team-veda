@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  body {
+    @apply bg-paper text-ink antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  ::selection {
+    @apply bg-moss/20;
+  }
+  :focus-visible {
+    outline: 2px solid #1F6F5C;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-panel border border-line rounded-lg shadow-card p-5;
+  }
+  .stat-figure {
+    font-family: 'JetBrains Mono', monospace;
+    @apply tabular-nums;
+  }
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.12em] text-muted;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded bg-moss text-white text-sm font-medium px-3.5 py-2 hover:bg-moss-dark transition-colors;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded border border-line bg-white text-ink text-sm font-medium px-3.5 py-2 hover:bg-paper transition-colors;
+  }
+  .input-field {
+    @apply w-full rounded border border-line bg-white px-3 py-2 text-sm text-ink placeholder:text-muted focus:border-moss focus:outline-none;
+  }
+}
+
+/* Leaflet marker z-index fix inside flex/grid layouts */
+.leaflet-container {
+  font-family: 'Inter', sans-serif;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulseRing {
+    animation: none;
+  }
+}
