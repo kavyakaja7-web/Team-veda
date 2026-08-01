@@ -12,6 +12,7 @@ from app.routes import risk as risk_router
 from app.routes import status as status_router
 from app.routes import explanations as explanations_router
 from app.routes import analytics as analytics_router
+from app.routes import predict as predict_router
 
 app = FastAPI(
     title="GVMC GVP Tracking System",
@@ -45,6 +46,7 @@ app.include_router(risk_router.router)
 app.include_router(status_router.router)
 app.include_router(explanations_router.router)
 app.include_router(analytics_router.router)
+app.include_router(predict_router.router)
 
 
 # ---------------------------------------------------------------------------

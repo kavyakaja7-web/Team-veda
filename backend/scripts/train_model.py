@@ -202,7 +202,7 @@ df_out = df.sort_values("rf_predicted_recurrence_rate", ascending=False)
 df_out.to_csv(OUTPUT_PATH, index=False)
 print(f"Saved updated model predictions with rich variance to {OUTPUT_PATH}")
 
-MODEL_OUT = "models/rf_recurrence_model.pkl"
+MODEL_OUT = "models/gvp_model.pkl"
 os.makedirs(os.path.dirname(MODEL_OUT), exist_ok=True)
 joblib.dump({"model": model, "features": FEATURES}, MODEL_OUT)
 print(f"Saved trained model to {MODEL_OUT}")
