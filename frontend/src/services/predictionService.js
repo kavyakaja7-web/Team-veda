@@ -15,3 +15,8 @@ export async function getPredictions(params = {}) {
     return MOCK_PREDICTIONS
   }
 }
+
+export async function predictNewGvp(payload) {
+  const { data } = await api.post('/api/predict/', payload)
+  return data
+}

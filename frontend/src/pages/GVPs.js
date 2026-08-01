@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import useGVPs from '../hooks/useGVPs.js'
 import Filters from '../components/Filters.js'
 import GVPTable from '../components/GVPTable.js'
@@ -27,11 +27,11 @@ export default function GVPs() {
     })
   }, [gvpList, filters])
 
-  if (isLoading) return <LoadingSpinner label="Loading GVPs…" />
+  if (isLoading) return <LoadingSpinner label="Loading GVP Registry & GIS Points…" />
 
   if (isError) {
     return (
-      <div className="card border-risk-high/30 bg-risk-highBg text-risk-high">
+      <div className="card-cmd border-red-200 bg-red-50 text-red-700 p-6 rounded-2xl">
         Couldn&apos;t load GVPs: {error?.message}
       </div>
     )
@@ -40,7 +40,7 @@ export default function GVPs() {
   return (
     <div className="space-y-6">
       <Filters value={filters} onChange={setFilters} />
-      <MapView gvps={filtered} height={320} />
+      <MapView gvps={filtered} height={360} />
       <GVPTable gvps={filtered} />
     </div>
   )
