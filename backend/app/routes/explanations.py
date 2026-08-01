@@ -62,8 +62,6 @@ def explain_gvp_risk(
     """Generate officer-friendly explanation from existing ML output; never replaces the ML prediction."""
     if not os.path.exists(FINAL_CSV_PATH):
         raise HTTPException(status_code=500, detail="Risk model data not generated yet. Run the training pipeline first.")
-    if not os.getenv("GROQ_API_KEY"):
-        raise HTTPException(status_code=503, detail="Groq is not configured. Add GROQ_API_KEY to backend/.env.")
 
     df = pd.read_csv(FINAL_CSV_PATH)
     matches = df[df["gvp_id"].astype(str) == gvp_id]
@@ -87,6 +85,7 @@ def explain_gvp_risk(
         explanation = generate_gvp_explanation(record)
     except Exception as exc:
         raise HTTPException(status_code=502, detail=f"Groq explanation request failed: {exc}") from exc
+
 
     generated_at = datetime.now(timezone.utc).isoformat()
     CACHE_COLLECTION.replace_one(
